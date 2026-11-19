@@ -18,7 +18,7 @@ At checkout, scan an in-stock IMEI to load the phone and its price. Enter the ca
 
 ## Try the sample data
 
-Open http://localhost:3000/?demo=1 and unlock with PIN **1234**. The demo uses a separate IndexedDB database and stays local to the browser. Use **Open shop** to return to your shop records.
+Click **Try demo** on the sign-in screen, or open http://localhost:3000/?demo=1 directly. Unlock with PIN **1234**. The demo includes 18 phones, nine customers and sales, and sample bank payments and returns. The demo uses a separate IndexedDB database and stays local to the browser. Use **Open shop** to return to your shop records.
 
 ## Enable cloud uploads
 

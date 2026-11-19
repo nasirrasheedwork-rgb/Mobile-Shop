@@ -242,7 +242,7 @@ export function Shop() {
         {lockError && <p className="form-error">{lockError}</p>}
         <Button type="submit" className="primary" disabled={pending}>{settings ? "Unlock shop" : "Create owner PIN"}</Button>
       </form>
-      <div className="actions">{updateButton}{!settings && <Restore run={run} onRestored={lock} />}{demoMode && <a className="button" href="/">Open shop</a>}{!demoMode && !installed && <Button onClick={installApp}><Download size={16} /> Install app</Button>}</div>
+      <div className="actions">{updateButton}{!settings && <Restore run={run} onRestored={lock} />}{demoMode ? <a className="button" href="/">Open shop</a> : <a className="button" href="/?demo=1">Try demo</a>}{!demoMode && !installed && <Button onClick={installApp}><Download size={16} /> Install app</Button>}</div>
     </div>{toast}
   </main></ActionErrorContext.Provider>;
 
@@ -266,7 +266,7 @@ export function Shop() {
         <div className="top-actions">
           {updateButton}
           <span className={"connection " + (online ? "online" : "")}>{online ? <Wifi size={15} /> : <WifiOff size={15} />}{online ? "Online" : "Offline"}</span>
-          {demoMode && <><span className="sync-warning">Sample data</span><a className="button" href="/">Open shop</a></>}
+          {demoMode ? <><span className="sync-warning">Sample data</span><a className="button" href="/">Open shop</a></> : <a className="button" href="/?demo=1" target="_blank" rel="noopener">Try demo</a>}
           {!demoMode && state.unsynced > 0 && <button className="sync-warning" onClick={() => go("command")} title="Open Command Center for cloud sync"><Cloud size={16} /> {state.unsynced} records not synced</button>}
           {!demoMode && !installed && <Button className="install" onClick={installApp}><Download size={16} /> Install app</Button>}
           <Button className="icon-btn" aria-label={dark ? "Switch to light mode" : "Switch to dark mode"} onClick={() => { localStorage.setItem("mobile-shop-theme", dark ? "light" : "dark"); setDark(!dark); }}>{dark ? <Sun size={18} /> : <Moon size={18} />}</Button>
